@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 
 
-function PasswordInput({className="",placeholder,id,name}) {
+function PasswordInput({className="",placeholder,id,name,defaultValue}) {
 
     const [OpenEye,setOpenEye]=useState(true);
     const [ShowEye,setShowEye]=useState(false);
@@ -32,7 +32,7 @@ function PasswordInput({className="",placeholder,id,name}) {
 
   return (
       <DIV className={``} onClick={handleClick} ShowEye={ShowEye} >
-            <input  className={`${className}`}  placeholder={placeholder} type={`${OpenEye?'password':'text'}`} id={id}  name={name} >
+            <input  className={`${className}`}  placeholder={placeholder} type={`${OpenEye?'password':'text'}`} id={id}  name={name} defaultValue={defaultValue} >
                     
             </input>
            {OpenEye && <EyeOn className='svg-icon-eye mt-4 cursor-p'></EyeOn>}

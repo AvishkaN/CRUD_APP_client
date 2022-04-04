@@ -39,8 +39,8 @@ function RegistarPage({className="",btnText="LOGIN",secondText="Sign Up",to="/si
                                                 {/* Form  */}
                                                 <form className="    ">
 
-                                                                <Input id="Email" name="Email" className="input w-100 p-2  ps-3 mt-4  font-1-6  border-radius-5  border-grey  "   placeholder='Email  *' ></Input>
-                                                                <Password id="Password" name="Password" className="input w-100 p-2  ps-3 mt-4  font-1-6  border-radius-5  border-grey  "   placeholder='Password  *' ></Password>
+                                                                <Input id="Email" name="Email" className="input w-100 p-2  ps-3 mt-4  font-1-6  border-radius-5  border-grey  "   placeholder='Email  *'  defaultValue="demo@gamil.com" ></Input>
+                                                                <Password id="Password" name="Password" className="input w-100 p-2  ps-3 mt-4  font-1-6  border-radius-5  border-grey  "   placeholder='Password  *'  defaultValue="pass" ></Password>
                
 
 

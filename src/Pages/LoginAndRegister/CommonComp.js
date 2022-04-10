@@ -6,11 +6,17 @@ import CloseBtn from '../../Components/UI/CloseBtn/CloseBtn';
 import LinkComp from '../../Components/UI/Link/Link';
 import { logInAsync, signUpAsync } from '../../Redux/slices/userSlice';
 import { useDispatch } from 'react-redux';
+import { useState } from 'react';
+import { ShowChart } from '@mui/icons-material';
 
 
 
 
 function CommonComp(props) {
+
+
+    const [formData,setFormData]=useState({});
+    // const [showBtn,setShowBtn]=useState(false);
 
     const dispatch=useDispatch();
 
@@ -40,6 +46,63 @@ function CommonComp(props) {
     
     
     };
+
+    const handleFormChange=(e)=>{ 
+        e.preventDefault();
+
+        const logInBtn=e.target.closest('form').querySelector('#log-in-btn');
+        const SignUpBtn=e.target.closest('form').querySelector('#sign-up-btn');
+
+        // console.log(e.target.closest('form').querySelector('#log-in-btn'));  
+        // console.log(e.target.name);  
+        // console.log(e.target.value);    
+        // console.log(e.target.value);     
+        
+        
+
+       
+        // console.log(logInBtn);    
+        // console.log(SignUpBtn);    
+
+        
+
+
+        
+        
+        
+        // set form date to state
+        setFormData({...formData,[e.target.name]:e.target.value});
+        
+        
+        // what input values I want to check .
+        let inputValues=[]; 
+
+
+        if(logInBtn){ // if login page
+            
+            inputValues=["Email",'Password']; 
+        }
+        
+        if(SignUpBtn){  // if sign up page
+            inputValues=['Address',"Email",'FirstName','LastName','MobileNumber','Password'];
+            
+        }
+        
+        
+        
+        // get all empty fields now
+        const isEmpty=inputValues.filter(item=>{ 
+            return formData[item]===undefined  || formData[item]===''
+        });
+        
+        
+        
+        if(isEmpty.length===0) props.setShowBtn(false);   // set button state 
+        
+     
+        
+    
+    };
   
 
 
@@ -48,7 +111,7 @@ function CommonComp(props) {
   
 
 
-    <DIV className={`${props.className} background-aqu`} onSubmit={handleFormSubmit}>
+    <DIV className={`${props.className} background-aqu`} onSubmit={handleFormSubmit} onChange={handleFormChange}>
         
         <div className="common-comp-wrapper border-radius-10">
 
@@ -82,6 +145,7 @@ function CommonComp(props) {
                                     </div>
 
         </div>
+
 
         
     </DIV>

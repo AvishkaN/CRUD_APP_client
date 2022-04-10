@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 
 
-function Page({className=""}) {
+function SingleComp({className=""}) {
 
   return (
     <DIV className={`${className}`}>
@@ -18,4 +18,4 @@ const DIV=styled.div`
  
 `;
 
-export default Page;
+export default SingleComp;

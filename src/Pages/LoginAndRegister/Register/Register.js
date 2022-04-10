@@ -9,15 +9,18 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../../../Redux/slices/userSlice';
+import { useState } from 'react';
 
 
 
 
 
-function RegisterPage({className=""}) {
+function RegisterPage({className="",}) {
 
   const navigate=useNavigate();
   const UserSelect=useSelector(selectUser);
+  const [showBtn,setShowBtn]=useState(true);
+
 
 
   useEffect(()=>{
@@ -34,7 +37,7 @@ function RegisterPage({className=""}) {
          <div className="RegisterPage-wrapper">
 
              
-         <CommonComp className={`${className} display-flex align-items-center `}>
+         <CommonComp className={`${className} display-flex align-items-center `} showBtn={showBtn} setShowBtn={setShowBtn}>
 
 
 
@@ -45,13 +48,13 @@ function RegisterPage({className=""}) {
                     <form    id={"myform"}>
 
                     
-                    <Input id="FirstName" name="FirstName" className="input w-100 p-2  ps-3 mt-5  font-1-6  border-radius-5 border-grey"   placeholder='First Name *' ></Input>
+                    <Input id="FirstName" name="FirstName" className="input w-100 p-2  ps-3 mt-5  font-1-6  border-radius-5 border-grey"   placeholder='First Name *' required={true}></Input>
                    
-                    <Input id="LastName" name="LastName" className="input w-100 p-2  ps-3 mt-4  font-1-6  border-radius-5  border-grey  "   placeholder='Last Name  *' ></Input>
-                    <Input id="Email" name="Email" className="input w-100 p-2  ps-3 mt-4  font-1-6  border-radius-5  border-grey  "   placeholder='Email  *' ></Input>
-                    <Input id="MobileNumber" name="MobileNumber" className="input w-100 p-2  ps-3 mt-4  font-1-6  border-radius-5  border-grey  "   placeholder='MobileNumber  *' ></Input>
-                    <Input id="Address" name="Address" className="input w-100 p-2  ps-3 mt-4  font-1-6  border-radius-5  border-grey  "   placeholder='Address  *' ></Input>
-                    <Input id="Password" name="Password" className="input w-100 p-2  ps-3 mt-4  font-1-6  border-radius-5  border-grey  "   placeholder='Password  *' ></Input>
+                    <Input id="LastName" name="LastName" className="input w-100 p-2  ps-3 mt-4  font-1-6  border-radius-5  border-grey  "   placeholder='Last Name  *'    required={true} ></Input>
+                    <Input id="Email" name="Email"  type={"email"} className="input w-100 p-2  ps-3 mt-4  font-1-6  border-radius-5  border-grey  "   placeholder='Email  *'  required={true}  ></Input>
+                    <Input id="MobileNumber" name="MobileNumber" type={"number"} className="input w-100 p-2  ps-3 mt-4  font-1-6  border-radius-5  border-grey  " required={true}  placeholder='MobileNumber  *' ></Input>
+                    <Input id="Address" name="Address" className="input w-100 p-2  ps-3 mt-4  font-1-6  border-radius-5  border-grey  "   placeholder='Address  *'  required={true}  ></Input>
+                    <Input id="Password" name="Password" className="input w-100 p-2  ps-3 mt-4  font-1-6  border-radius-5  border-grey  "   placeholder='Password  *'  required={true}  ></Input>
                     
                     
 
@@ -61,7 +64,12 @@ function RegisterPage({className=""}) {
                     {/* Button */}
                     <div className="text-right">
 
-                                  <Input type="submit" id={"sign-up-btn"}  className='background-primary border-radius-5  text-color-white mt-4 w-60 font-1-6 p-2' border={false} ></Input>
+                                  {/* <Input type="submit" id={"sign-up-btn"}  className='background-primary border-radius-5  text-color-white mt-4 w-60 font-1-6 p-2' border={false} disabled={true}></Input> */}
+                                  {/* <Button type="submit" id={"sign-up-btn"}  className='background-primary border-radius-5  text-color-white mt-4 w-60 font-1-6 p-2' border={false} disabled={true}></Input> */}
+                    
+                                  <Button type="submit" disabled={showBtn} id={"sign-up-btn"}   className="background-primary border-radius-5  text-color-white mt-4 w-60 font-1-6 p-2">Sign Up</Button>
+                    
+                    
                     </div>
                       </form>
 

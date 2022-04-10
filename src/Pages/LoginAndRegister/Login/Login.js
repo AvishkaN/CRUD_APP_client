@@ -1,22 +1,30 @@
 import styled from 'styled-components';
-import Password from '../../../Components/UI/Input/PasswordInput/Password';
-import CommonComp from './../CommonComp';
-import LinkComp from '../../../Components/UI/Link/Link';
-import Input from '../../../Components/UI/Input/Input';
-
 
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useState } from 'react';
 import { selectUser } from '../../../Redux/slices/userSlice';
 
 
+import Password from '../../../Components/UI/Input/PasswordInput/Password';
+import CommonComp from './../CommonComp';
+import LinkComp from '../../../Components/UI/Link/Link';
+import Input from '../../../Components/UI/Input/Input';
+import Button from '../../../Components/UI/Button/Button';
+
+import FormValidationError from './../FormValidationError';
 
 
-function RegistarPage({className="",btnText="LOGIN",secondText="Sign Up",to="/signUp"}) {
+
+
+
+function LoginPage({className="",btnText="LOGIN",secondText="Sign Up",to="/signUp"}) {
 
   const navigate=useNavigate();
   const UserSelect=useSelector(selectUser);
+  const [showBtn,setShowBtn]=useState(true);
+
 
 
   useEffect(()=>{
@@ -34,21 +42,21 @@ function RegistarPage({className="",btnText="LOGIN",secondText="Sign Up",to="/si
        
 
 
-                                <CommonComp className={`${className} display-flex align-items-center `}>
+                                <CommonComp className={`${className} display-flex align-items-center `} showBtn={showBtn} setShowBtn={setShowBtn} >
 
                                                 {/* Form  */}
                                                 <form className="    ">
 
-                                                                <Input id="Email" name="Email" className="input w-100 p-2  ps-3 mt-4  font-1-6  border-radius-5  border-grey  "   placeholder='Email  *'  defaultValue="demo@gamil.com" ></Input>
-                                                                <Password id="Password" name="Password" className="input w-100 p-2  ps-3 mt-4  font-1-6  border-radius-5  border-grey  "   placeholder='Password  *'  defaultValue="pass" ></Password>
+                                                                <Input id="Email" name="Email" className="input w-100 p-2  ps-3 mt-4  font-1-6  border-radius-5  border-grey  "   placeholder='demo@gmail.com'   ></Input>
+                                                                <Password id="Password" name="Password" className="input w-100 p-2  ps-3 mt-4  font-1-6  border-radius-5  border-grey  "   placeholder='pass'   ></Password> 
                
 
 
+                                                                <FormValidationError/>
 
-                                                              
-                                                                    
-                                                                {/* Button */}
-                                                                <Input type="submit" className='background-primary border-radius-5  text-color-white mt-4 w-100 font-1-6 p-2' border={false} value={"Log In"} id={"log-in-btn"} ></Input>
+
+                                                                {/* LOG IN Button */}
+                                                                <Button type="submit" disabled={showBtn} id={"log-in-btn"}   className="background-primary border-radius-5  text-color-white mt-4 w-100 font-1-6 p-2">Log In</Button>
 
 
 
@@ -63,8 +71,11 @@ function RegistarPage({className="",btnText="LOGIN",secondText="Sign Up",to="/si
                                     
                                     
                                                 </form>
+
+
                                             
                                 </CommonComp>
+
 
     </DIV>
   );
@@ -73,8 +84,8 @@ function RegistarPage({className="",btnText="LOGIN",secondText="Sign Up",to="/si
 
 const DIV=styled.div`
     width: 100%;
-    /* margin-top: var(--margin-top-fix-nav);  */  /*only RegistarPage */
+    /* margin-top: var(--margin-top-fix-nav);  */  /*only LoginPage */
     
 `;
 
-export default RegistarPage;
+export default LoginPage;

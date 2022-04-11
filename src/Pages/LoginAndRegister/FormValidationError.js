@@ -3,7 +3,7 @@ import WarningIcon from '@mui/icons-material/ErrorOutlineOutlined';
 
 
 
-function FormValidationError({className="",text="Please Provide Valid Email"}) {
+function FormValidationError({className="",text=""}) {
 
   return (
     <DIV className={`text-color-red  display-flex align-items-center mt-3   ${className}`}>

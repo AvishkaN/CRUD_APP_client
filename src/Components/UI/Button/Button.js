@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 function Button(props) {
   return (
-    <ButtonComp type="button" type={props.type}  className={`${props.className} btn`}   id={props.id}  border={props.border} disabled={props.disabled} >
+    <ButtonComp type={`${props.type?props.type:'button'}`}   className={`${props.className} btn`}   id={props.id}  border={props.border} disabled={props.disabled}  >
 
                 {props.children}  
     </ButtonComp>

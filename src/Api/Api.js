@@ -20,7 +20,8 @@ export const deleteProduct = (id) => axios.delete(`${url}/${id}`);
 const urlUser='http://localhost:5000/user'; 
 
 
-export const SignUp = (newUser) => axios.post(urlUser, newUser);   
+export const SignUp = (newUser) => axios.post(urlUser, newUser); 
+
 
 export const LogIn = (email,password) => axios.post(`${urlUser}/logIn`, {email,password});
 

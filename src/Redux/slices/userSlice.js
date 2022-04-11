@@ -12,7 +12,7 @@ export const signUpAsync=createAsyncThunk('user/signUp',async(userData)=>{
     const data=await SignUp(userData);
     console.log(data);
 
-    const sendObject={ // set what data send it 
+    const sendObject={  // set what data send it 
       FirstName:data.data.FirstName,
       Email:data.data.Email,
       UserId:data.data._id,  
@@ -32,15 +32,16 @@ export const signUpAsync=createAsyncThunk('user/signUp',async(userData)=>{
 // Log In
 export const logInAsync=createAsyncThunk('user/logIn',async({Email,Password})=>{
 
+  console.log(Email,Password);
+
+  const data=await LogIn(Email,Password);
+
+  return data.data; 
   try{
-    console.log(Email,Password);
-
-    const data=await LogIn(Email,Password);
-
-    return data.data; 
 
   }catch(error){
       console.log(error);
+      console.log(error.message);
   
   }
 
@@ -56,16 +57,20 @@ const UsertSlice = createSlice({
     name: 'user',
     initialState: {
       user: null,
-    
       status: null,
+      // userValidatiionError: 'wrong !!',
+      userValidatiionError: null, 
+
     },
     reducers:{
 
       logOutUserFN:(state)=>{     
-
         state.user=null;     
+      },
 
-    },
+      setUserValidationErrorFN:(state,action)=>{     
+        state.userValidatiionError=action.payload;     
+      },
 
 
     },
@@ -93,6 +98,16 @@ const UsertSlice = createSlice({
         state.user = payload;
         state.status = 'success';
       },
+
+      // [logInAsync.rejected]: (state, action) => {
+
+      //   // state.user = payload;
+      //   // state.status = 'success';
+
+      //   console.log('😎😎');
+      //   console.log(action);
+      //   console.log(action.payload.message);
+      // },
 
 
      

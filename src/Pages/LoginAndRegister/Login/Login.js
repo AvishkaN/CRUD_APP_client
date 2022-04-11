@@ -22,8 +22,11 @@ import FormValidationError from './../FormValidationError';
 function LoginPage({className="",btnText="LOGIN",secondText="Sign Up",to="/signUp"}) {
 
   const navigate=useNavigate();
+
+
   const UserSelect=useSelector(selectUser);
   const [showBtn,setShowBtn]=useState(true);
+
 
 
 
@@ -42,39 +45,40 @@ function LoginPage({className="",btnText="LOGIN",secondText="Sign Up",to="/signU
        
 
 
-                                <CommonComp className={`${className} display-flex align-items-center `} showBtn={showBtn} setShowBtn={setShowBtn} >
+      <CommonComp className={`${className} display-flex align-items-center `} showBtn={showBtn} setShowBtn={setShowBtn} >
 
-                                                {/* Form  */}
-                                                <form className="    ">
+        {/* Form  */}
+        <form className="    ">
 
-                                                                <Input id="Email" name="Email" className="input w-100 p-2  ps-3 mt-4  font-1-6  border-radius-5  border-grey  "   placeholder='demo@gmail.com'   ></Input>
-                                                                <Password id="Password" name="Password" className="input w-100 p-2  ps-3 mt-4  font-1-6  border-radius-5  border-grey  "   placeholder='pass'   ></Password> 
-               
-
-
-                                                                <FormValidationError/>
-
-
-                                                                {/* LOG IN Button */}
-                                                                <Button type="submit" disabled={showBtn} id={"log-in-btn"}   className="background-primary border-radius-5  text-color-white mt-4 w-100 font-1-6 p-2">Log In</Button>
+            <Input id="Email" name="Email" className="input w-100 p-2  ps-3 mt-4  font-1-6  border-radius-5  border-grey  "   placeholder='demo@gmail.com'   ></Input>
+            <Password id="Password" name="Password" className="input w-100 p-2  ps-3 mt-4  font-1-6  border-radius-5  border-grey  "   placeholder='pass'   ></Password> 
 
 
 
-                                                                {/* Txt */}
-                                                                <div className="sign-in text-center mt-4">
-                                                                    <span className='  text-color-grey'> Don't have an account ? </span>
-                                                                    <LinkComp to={to} className='  cursor-p text-color-primary fw-bold '>{secondText}</LinkComp>
-                                                                </div> 
-                                        
-                                        
-
-                                    
-                                    
-                                                </form>
+            {/* form validation error  */}
+            {UserSelect.userValidatiionError && <FormValidationError text={UserSelect.userValidatiionError}/>}
 
 
-                                            
-                                </CommonComp>
+            {/* LOG IN Button */}
+            <Button type="submit" disabled={showBtn} id={"log-in-btn"}   className="background-primary border-radius-5  text-color-white mt-4 w-100 font-1-6 p-2">Log In</Button>
+
+
+
+            {/* Txt */}
+            <div className="sign-in text-center mt-4">
+                <span className='  text-color-grey'> Don't have an account ? </span>
+                <LinkComp to={to} className='  cursor-p text-color-primary fw-bold '>{secondText}</LinkComp>
+            </div> 
+
+
+
+
+
+        </form>
+
+
+                  
+      </CommonComp>
 
 
     </DIV>

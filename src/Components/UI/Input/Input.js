@@ -6,7 +6,6 @@ function Input(props) {
   
   return (
          <InputComp  type={props.type}  className={` input ${props.className} `}   placeholder={props.placeholder} value={props.value} border={props.border}  name={props.name} id={props.id} defaultValue={props.defaultValue} required={props.required}  >
-            {console.log(props)}
         </InputComp>
 
   );

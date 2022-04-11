@@ -32,18 +32,50 @@ export const signUpAsync=createAsyncThunk('user/signUp',async(userData)=>{
 // Log In
 export const logInAsync=createAsyncThunk('user/logIn',async({Email,Password})=>{
 
-  console.log(Email,Password);
-
-  const data=await LogIn(Email,Password);
-
-  return data.data; 
-  try{
-
-  }catch(error){
-      console.log(error);
-      console.log(error.message);
   
-  }
+
+  
+  
+  
+  
+  return new Promise(async function (resolve, reject) {
+    
+    
+    try{
+      const user=await fetch('http://localhost:5000/user/logIn', {
+      method: 'POST', 
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body:JSON.stringify({email:Email,password:Password}),
+      }); 
+  
+  
+      const userData=await user.json();
+  
+      if(userData.FirstName){ // check if userData is valid 
+         resolve(userData);
+      } else{
+        throw new Error(userData);
+      }
+
+
+  
+    }catch(error){
+  
+      reject(error);  
+    }
+
+
+
+
+  
+
+    
+
+
+  });
+
 
 
 });
@@ -93,21 +125,22 @@ const UsertSlice = createSlice({
       
       
       // Log In
-
       [logInAsync.fulfilled]: (state, { payload }) => {
+
         state.user = payload;
         state.status = 'success';
       },
+      [logInAsync.pending]: (state,  action) => {
+        
+        state.status = 'pending';   
+      
+      },
 
-      // [logInAsync.rejected]: (state, action) => {
+      [logInAsync.rejected]: (state, action) => {
 
-      //   // state.user = payload;
-      //   // state.status = 'success';
-
-      //   console.log('😎😎');
-      //   console.log(action);
-      //   console.log(action.payload.message);
-      // },
+        state.userValidatiionError=action.error.message;   
+      
+      },
 
 
      
@@ -122,7 +155,7 @@ const UsertSlice = createSlice({
 
   
 
-  export const {logOutUserFN} =UsertSlice.actions; 
+  export const {logOutUserFN,setUserValidationErrorFN} =UsertSlice.actions; 
 
 
 

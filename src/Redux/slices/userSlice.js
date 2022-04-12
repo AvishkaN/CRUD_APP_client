@@ -1,5 +1,6 @@
 import {createSlice,createAsyncThunk} from '@reduxjs/toolkit';
 import {LogIn, SignUp} from '../../Api/Api';
+import { POSTRequest } from '../../Functions/RESTapi/restapi';
 
 
 
@@ -31,10 +32,6 @@ export const signUpAsync=createAsyncThunk('user/signUp',async(userData)=>{
 
 // Log In
 export const logInAsync=createAsyncThunk('user/logIn',async({Email,Password})=>{
-
-  
-
-  
   
   
   
@@ -42,14 +39,8 @@ export const logInAsync=createAsyncThunk('user/logIn',async({Email,Password})=>{
     
     
     try{
-      const user=await fetch('http://localhost:5000/user/logIn', {
-      method: 'POST', 
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body:JSON.stringify({email:Email,password:Password}),
-      }); 
-  
+      const user=await POSTRequest('http://localhost:5000/user/logIn',{email:Email,password:Password});
+
   
       const userData=await user.json();
   

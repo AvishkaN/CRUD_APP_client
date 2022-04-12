@@ -14,6 +14,7 @@ import Input from '../../../Components/UI/Input/Input';
 import Button from '../../../Components/UI/Button/Button';
 
 import FormValidationError from './../FormValidationError';
+import Loader from '../../../Components/UI/Loader/Loader2';
 
 
 
@@ -60,7 +61,12 @@ function LoginPage({className="",btnText="LOGIN",secondText="Sign Up",to="/signU
 
 
             {/* LOG IN Button */}
-            <Button type="submit" disabled={showBtn} id={"log-in-btn"}   className="background-primary border-radius-5  text-color-white mt-4 w-100 font-1-6 p-2">Log In</Button>
+            <Button type="submit" disabled={showBtn} id={"log-in-btn"}   className="background-primary border-radius-5  text-color-white mt-4 w-100 font-1-6 p-2">
+              <Loader></Loader>
+              Log In
+            </Button>
+
+
 
 
 

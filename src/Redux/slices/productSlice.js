@@ -3,7 +3,7 @@ import {createPost, fetchPost,editProduct, deleteProduct} from './../../Api/Api'
 
 
 // READ
-export const fetchAllProducts=createAsyncThunk('posts/getPosts',async(userId)=>{
+export const fetchAllProducts=createAsyncThunk('posts/getProducts',async(userId)=>{
 
     const data=await fetchPost();
 

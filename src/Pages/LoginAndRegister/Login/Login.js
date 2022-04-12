@@ -62,8 +62,15 @@ function LoginPage({className="",btnText="LOGIN",secondText="Sign Up",to="/signU
 
             {/* LOG IN Button */}
             <Button type="submit" disabled={showBtn} id={"log-in-btn"}   className="background-primary border-radius-5  text-color-white mt-4 w-100 font-1-6 p-2">
-              <Loader></Loader>
-              Log In
+            
+              <div className="display-flex justify-content-center align-item-center">
+
+               {UserSelect.status==='pending' && <Loader></Loader>  }
+               {!(UserSelect.status==='pending') &&  <div className=""> Log In</div>  }
+               
+
+              </div>
+             
             </Button>
 
 

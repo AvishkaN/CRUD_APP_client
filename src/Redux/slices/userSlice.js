@@ -104,7 +104,7 @@ const UsertSlice = createSlice({
 
       // CREATE
       [signUpAsync.pending]: (state, action) => {
-        state.status = 'loading'
+        state.status = 'pending'
       },
       [signUpAsync.fulfilled]: (state, { payload }) => {
         state.user = payload;

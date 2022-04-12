@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../../../Redux/slices/userSlice';
 import { useState } from 'react';
+import Loader2 from '../../../Components/UI/Loader/Loader2';
 
 
 
@@ -67,10 +68,25 @@ function RegisterPage({className="",}) {
                                   {/* <Input type="submit" id={"sign-up-btn"}  className='background-primary border-radius-5  text-color-white mt-4 w-60 font-1-6 p-2' border={false} disabled={true}></Input> */}
                                   {/* <Button type="submit" id={"sign-up-btn"}  className='background-primary border-radius-5  text-color-white mt-4 w-60 font-1-6 p-2' border={false} disabled={true}></Input> */}
                     
-                                  <Button type="submit" disabled={showBtn} id={"sign-up-btn"}   className="background-primary border-radius-5  text-color-white mt-4 w-60 font-1-6 p-2">Sign Up</Button>
+                                  {/* <Button type="submit" disabled={showBtn} id={"sign-up-btn"}   className="background-primary border-radius-5  text-color-white mt-4 w-60 font-1-6 p-2">Sign Up</Button> */}
+                                  <Button type="submit" disabled={showBtn} id={"sign-up-btn"}   className="background-primary border-radius-5  dispaly-flex justify-content-center text-color-white mt-4 w-60 font-1-6 p-2">
+                                   
+
+                                   <div className="display-flex justify-content-center align-item-center">
+
+                                    
+                                    {(UserSelect.status==='pending') && <Loader2></Loader2>  }
+                                    {!(UserSelect.status==='pending') &&  <div className="">  Sign Up </div>  }
+
+                                   </div>
+                                  
+                                  
+                                  </Button>
                     
                     
                     </div>
+
+
                       </form>
 
 

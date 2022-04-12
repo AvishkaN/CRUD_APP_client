@@ -7,7 +7,7 @@ function Loader({className="",size=2}) {
   return (
     <DIV className={`${className} display-flex justify-content-center `} size={size}>
        
-       <div className="loader">
+       <div className="loader ">
 
        </div>
 

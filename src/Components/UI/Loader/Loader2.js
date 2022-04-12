@@ -6,7 +6,7 @@ function Loader2({className=""}) {
 
   return (
     <DIV className={`${className} `} >
-       <div className="background-red lds-ellipsis "><div></div><div></div><div></div><div></div></div>
+       <div className="background-re lds-ellipsis pe-4 "><div></div><div></div><div></div><div></div></div>
 
     </DIV>
   );
@@ -15,14 +15,14 @@ function Loader2({className=""}) {
 
 const DIV=styled.div`
 .lds-ellipsis {
-        // display: inline-block;
-        width: 100%;    
-        position: relative;
-        height: 8rem;  
+        display: flex; 
+        // width: 100%;    
+        // position: relative;
+        // height: 8rem;  
       }
       .lds-ellipsis div {
-        position: absolute;
-        top: 30%;
+        // position: absolute;
+        // top: 30%;
         width: 1.3rem;
         height: 1.3rem;
         border-radius: 50%;
@@ -31,7 +31,7 @@ const DIV=styled.div`
       }
       .lds-ellipsis div:nth-child(1) {
         left: .8rem;
-        animation: lds-ellipsis1 0.6s infinite;
+        animation: lds-ellipsis2 0.6s infinite;
       }
       .lds-ellipsis div:nth-child(2) {
         left: .8rem;

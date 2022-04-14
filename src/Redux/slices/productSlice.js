@@ -7,7 +7,7 @@ export const fetchAllProducts=createAsyncThunk('posts/getProducts',async(userId)
 
     const data=await fetchPost();
 
-    return data.data.filter(product=>product.userId ===userId ); 
+    return data.filter(product=>product.userId ===userId ); 
 
 
 });
@@ -21,7 +21,7 @@ export const createProduct=createAsyncThunk('posts/createProducts',async({userId
 
   try{
     const data=await createPost(productDetails);
-    return data.data; 
+    return data; 
 
   }catch(error){
       console.log(error);
@@ -40,7 +40,7 @@ export const EditProduct=createAsyncThunk('product/editProducts',async({id,edite
 
     const data=await editProduct( id,editedProduct );
 
-    return data.data; 
+    return data; 
 
   }catch(error){
       console.log(error);

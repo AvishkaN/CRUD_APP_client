@@ -12,11 +12,12 @@ export const signUpAsync=createAsyncThunk('user/signUp',async(userData)=>{
   try{
     const data=await SignUp(userData);
     console.log(data);
+    console.log(userData);
 
     const sendObject={  // set what data send it 
-      FirstName:data.data.FirstName,
-      Email:data.data.Email,
-      UserId:data.data._id,  
+      FirstName:data.FirstName,
+      Email:data.Email,
+      UserId:data._id,   
     };
 
     return sendObject; 
@@ -39,10 +40,9 @@ export const logInAsync=createAsyncThunk('user/logIn',async({Email,Password})=>{
     
     
     try{
-      const user=await POSTRequest('http://localhost:5000/user/logIn',{email:Email,password:Password});
+      const userData=await LogIn(Email,Password);
 
   
-      const userData=await user.json();
   
       if(userData.FirstName){ // check if userData is valid 
          resolve(userData);

@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../../../Redux/slices/userSlice';
 import { useState } from 'react';
-import Loader2 from '../../../Components/UI/Loader/Loader2';
+import Loader2 from '../../../Components/UI/Loader/Loader';
 
 
 

@@ -1,15 +1,21 @@
 import styled from 'styled-components';
 import Product from './Product';
+import LoderPage from './../../Components/UI/Loader/LoderPage';
+
+
+
 import ScrollWindowTop from './../../Functions/DOM/ScrollWindowTop';
 
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { DeleteProduct, fetchAllProducts, selectProducts, setSelectedProduct } from '../../Redux/slices/productSlice';
-import FilterDataById from '../../Functions/FilderDataById';
-import { ShowAddProductFN, ShowEditProductFN } from '../../Redux/slices/clickSlice';
-
 import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from '../../Redux/slices/userSlice';
+
+
+import { DeleteProduct, fetchAllProducts, selectProducts, setSelectedProduct } from '../../Redux/slices/productSlice';
+import { ShowAddProductFN, ShowEditProductFN } from '../../Redux/slices/clickSlice';
+import FilterDataById from '../../Functions/FilderDataById';
+
 
 
 
@@ -29,6 +35,7 @@ function AllProductsPage({className=""}) {
 
 
 
+  //  user didnt auth --> got to sign in/sign up
   useEffect(()=>{
     
     if(!UserSelect.user){ 
@@ -38,22 +45,23 @@ function AllProductsPage({className=""}) {
   },[UserSelect.user]);
 
 
+  //Scroll To Top
   useEffect(()=>{
 
-       //Scroll To Top
     ScrollWindowTop();
 
   },[])
 
 
+  // dispatch all product relavent current user
   useEffect(()=>{
 
-    // dispatch all product relavent current user
     dispatch(fetchAllProducts(UserSelect?.user?.UserId)); 
 
   },[dispatch])
 
 
+  // event listener this page 
   const hadnleClick=(e)=>{    
 
     const productDiv=e.target.closest(".product");
@@ -99,7 +107,18 @@ function AllProductsPage({className=""}) {
     <DIV className={`${className}`} onClick={hadnleClick}>
 
       <div className="all-products-wrapper">
+
+
+        {/* no products text*/}
+        { (productSelect.products.length===0) && <div className='text-center text-capitalize text-color-primary fw-bold font-1-7'>no products!   <span className='text-color-black ms-2  '>ADD NOW </span>    </div>  }
+
+
+        {/* Loader page */}
+        {productSelect.status==='pending' && <LoderPage></LoderPage>  }
+
          
+
+         {/* all products */}
         <div className="row justify-content-center">
 
         {
@@ -111,7 +130,9 @@ function AllProductsPage({className=""}) {
 
         </div>
 
-        
+
+
+
 
 
       </div>

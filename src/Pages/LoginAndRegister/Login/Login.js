@@ -14,7 +14,7 @@ import Input from '../../../Components/UI/Input/Input';
 import Button from '../../../Components/UI/Button/Button';
 
 import FormValidationError from './../FormValidationError';
-import Loader from '../../../Components/UI/Loader/Loader2';
+import Loader from '../../../Components/UI/Loader/Loader';
 
 
 

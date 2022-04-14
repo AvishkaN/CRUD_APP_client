@@ -86,11 +86,11 @@ const productSlice = createSlice({
 
       }
     },
-    extraReducers: {
+    extraReducers: { 
 
       // FETCH
       [fetchAllProducts.pending]: (state, action) => {
-        state.status = 'loading'
+        state.status = 'pending'
 
       },
       [fetchAllProducts.fulfilled]: (state, { payload }) => {

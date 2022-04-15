@@ -11,6 +11,7 @@ import { useSelector } from 'react-redux';
 import { selectUser } from '../../../Redux/slices/userSlice';
 import { useState } from 'react';
 import Loader2 from '../../../Components/UI/Loader/Loader';
+import PasswordInput from '../../../Components/UI/Input/PasswordInput/Password';
 
 
 
@@ -55,9 +56,10 @@ function RegisterPage({className="",}) {
                     <Input id="Email" name="Email"  type={"email"} className="input w-100 p-2  ps-3 mt-4  font-1-6  border-radius-5  border-grey  "   placeholder='Email  *'  required={true}  ></Input>
                     <Input id="MobileNumber" name="MobileNumber" type={"number"} className="input w-100 p-2  ps-3 mt-4  font-1-6  border-radius-5  border-grey  " required={true}  placeholder='MobileNumber  *' ></Input>
                     <Input id="Address" name="Address" className="input w-100 p-2  ps-3 mt-4  font-1-6  border-radius-5  border-grey  "   placeholder='Address  *'  required={true}  ></Input>
-                    <Input id="Password" name="Password" className="input w-100 p-2  ps-3 mt-4  font-1-6  border-radius-5  border-grey  "   placeholder='Password  *'  required={true}  ></Input>
                     
                     
+                    <Password id="Password" name="Password" className="input w-100 p-2  ps-3 mt-4  font-1-6  border-radius-5  border-grey  "   placeholder='pass'   ></Password> 
+
 
 
 

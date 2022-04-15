@@ -124,11 +124,12 @@ const UsertSlice = createSlice({
       [logInAsync.pending]: (state,  action) => {
         
         state.status = 'pending';   
-      
+        
       },
-
+      
       [logInAsync.rejected]: (state, action) => {
-
+        
+        state.status = 'failed';   
         state.userValidatiionError=action.error.message;   
       
       },

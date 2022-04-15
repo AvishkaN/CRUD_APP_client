@@ -45,7 +45,7 @@ function Nav({className=""}) {
            <AddIcon  id={"add-icon"}  className="cursor-p ms-auto text-color-grey-light border-radius-circle p-1 border-grey font-3-5"></AddIcon>
 
             {/* Profile Avatar */}
-            <div  id={"profile-icon"}  className="avatar cursor-p ms-3 background-green text-color-white fw-bold  border-radius-circle dis display-flex align-items-center justify-content-center p-3 w-4rem  ">{UserSelect?.user?.FirstName.charAt(0).toUpperCase()} </div>
+            <div  id={"profile-icon"}  className="avatar cursor-p ms-3 background-green text-color-white fw-bold  border-radius-circle dis display-flex align-items-center justify-content-center p-3 w-4rem  ">{UserSelect?.user?.FirstName?.charAt(0).toUpperCase()} </div>
            
             {/* Log Out  */}
            <LogoutIcon  id={"log-out"}  className="ms-2 cursor-p  text-color-grey-light border-radius-circle p-1 border-grey font-3-5"></LogoutIcon>

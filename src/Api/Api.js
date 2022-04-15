@@ -3,8 +3,8 @@ import { GETRequest,POSTRequest,PATCHRequest,DELETERequest } from "../Functions/
 
 // REFACTORING
 
-// const url='https://crudapp23q.herokuapp.com/products'; 
-const url='http://localhost:5000/products'; 
+const url='https://crudapp-2.herokuapp.com/products'; 
+// const url='http://localhost:5000/products'; 
 
 export const fetchPost=()=>GETRequest(url);
 
@@ -17,8 +17,8 @@ export const deleteProduct = (id) => DELETERequest(`${url}/${id}`);
 
 
 
-// const urlUser='https://crudapp23q.herokuapp.com/user'; 
-const urlUser='http://localhost:5000/user'; 
+const urlUser='https://crudapp-2.herokuapp.com/user'; 
+// const urlUser='http://localhost:5000/user'; 
 
 
 

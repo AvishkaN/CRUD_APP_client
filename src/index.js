@@ -13,6 +13,8 @@ import { Provider } from 'react-redux';
 import { store } from './Redux/store';
 
 
+import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
+
 
 
 ReactDOM.render(
@@ -25,7 +27,7 @@ ReactDOM.render(
 );
 
 
-
+serviceWorkerRegistration.register();
 
 
 

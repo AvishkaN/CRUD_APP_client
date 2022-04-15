@@ -26,7 +26,7 @@ function LoaderPage({className=""}) {
 
 const DIV=styled.div`
     width: 100%;
-    min-height:70vh; 
+    min-height:10vh; 
     /* margin-top: var(--margin-top-fix-nav);  */  /*only LoaderPage */
     
     

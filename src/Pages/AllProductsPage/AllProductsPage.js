@@ -119,14 +119,14 @@ function AllProductsPage({className=""}) {
          
 
          {/* all products */}
-        <div className="row justify-content-center">
+       <div className="row justify-content-center">
 
-        {
+            {
               productSelect.products.map(productData=>(
                   <Product  key={productData._id}  productId={productData._id} className="col-lg-3 col-sm-5 col-11 "  {...productData}>{"txt"}</Product>
 
               ))
-        }
+            }
 
         </div>
 

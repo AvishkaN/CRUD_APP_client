@@ -69,7 +69,7 @@ function EditProductComp({className=""}) {
                                                
 
 
-                                                <Input type="submit" className='background-primary border-radius-5  text-color-white mt-4 w-30 font-1-6 p-2'  border={false} value={"Edit"} id={"log-in-btn"} ></Input>
+                                                <Input type="submit" className='background-primary border-radius-5  text-color-white mt-4 w-30 font-1-6 p-2'  border={false} value={"Save"} id={"log-in-btn"} ></Input>
 
 
                                     </form>

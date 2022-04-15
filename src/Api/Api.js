@@ -3,16 +3,16 @@ import { GETRequest,POSTRequest,PATCHRequest,DELETERequest } from "../Functions/
 
 // REFACTORING
 
-const url='https://crudapp-2.herokuapp.com/products'; 
-// const url='http://localhost:5000/products'; 
+const urlProducts='https://crudapp-2.herokuapp.com/products'; 
+// const urlProducts='http://localhost:5000/products'; 
 
-export const fetchPost=()=>GETRequest(url);
+export const fetchPost=()=>GETRequest(urlProducts);
 
-export const createPost = (newPost) => POSTRequest(url, newPost);
+export const createPost = (newPost) => POSTRequest(urlProducts, newPost);
 
-export const editProduct = (id, editedProduct) => PATCHRequest(`${url}/${id}`, editedProduct);
+export const editProduct = (id, editedProduct) => PATCHRequest(`${urlProducts}/${id}`, editedProduct);
 
-export const deleteProduct = (id) => DELETERequest(`${url}/${id}`);
+export const deleteProduct = (id) => DELETERequest(`${urlProducts}/${id}`);
 
 
 

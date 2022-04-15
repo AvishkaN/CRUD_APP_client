@@ -1,6 +1,4 @@
-
-
-added missing feature CRUD_APP 
+Added missing feature CRUD_APP 
    *password hashing 
    *user form validation
    *loader  

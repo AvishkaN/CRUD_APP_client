@@ -120,6 +120,7 @@ const UsertSlice = createSlice({
 
         state.user = payload;
         state.status = 'success';
+        state.userValidatiionError=null;
       },
       [logInAsync.pending]: (state,  action) => {
         

@@ -1,8 +1,3 @@
-Added missing feature CRUD_APP 
-   *password hashing 
-   *user form validation
-   *loader  
-   *pwa
-   *responsiveness 
+Added password hashing user form validation ,loader  ,pwa ,responsiveness 
 	
 		
